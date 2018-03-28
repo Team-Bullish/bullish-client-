@@ -2,7 +2,7 @@ const store = require('./store')
 
 const signUpSuccess = function (data) {
   console.log(data)
-  $('#message').text('"You Had Me at Hello"-Sign up Success')
+  $('#message').text('Sign up Success!!!! All Youu Need To Do Is Sign In Now')
   $('#message').css('background-color', 'green')
   $('#email-field').val('')
   $('#password-field').val('')
@@ -12,7 +12,7 @@ const signUpSuccess = function (data) {
 
 const signUpFailure = function (error) {
   console.log(error)
-  $('#message').text('"Houston, We Have a Problem"-Sign up Error')
+  $('#message').text('Opps, Sign up Error. Please try again')
   $('#message').css('background-color', 'red')
   $('#email-field').val('')
   $('#password-field').val('')
@@ -21,32 +21,36 @@ const signUpFailure = function (error) {
 
 const signInSuccess = function (data) {
   console.log(data)
-  $('#message').text('"Welcome to THUNDERDOME!!!!!"-Sign In Success')
+  $('#message').text('Sign In Success!!! Let\'s create a survey')
+  $('#message').css('color', 'white')
   $('#message').css('background-color', 'green')
+  $('#message').hide(9000)
   $('#signInEmail').val('')
   $('#signInPassword').val('')
-  $('#change-password').show()
-  $('#sign-out').show()
-  $('#create').show()
-  $('#showAll').show()
-  $('#update').show()
-  $('#delete').show()
-  $('#all-users').show()
-  $('#sign-up').hide()
-  $('#sign-in').hide()
+  $('.container').show()
+  // $('#sign-in').hide()
+  // $('#change-password').show()
+  // $('#sign-out').show()
+  // $('#create').show()
+  // $('#showAll').show()
+  // $('#update').show()
+  // $('#delete').show()
+  // $('#all-users').show()
   store.user = data.user
 }
 
 const signInFailure = function (error) {
   console.log(error)
-  $('#message').text('"DANGER Will Robinson DANGER"-Signed in Error')
+  $('#message').text('Oops, Signed in Error. Please Try Again')
   $('#message').css('background-color', 'yellow')
+  $('#message').css('color', 'black')
+  $('#message').hide(9000)
   $('#signInEmail').val('')
   $('#signInPassword').val('')
 }
 
 const changeSuccess = function () {
-  $('#message').text('"May The Force Be With You"-Changed Password Successfully')
+  $('#message').text('NO ONE SHALL PASS!!!-Changed Password Success')
   $('#message').css('background-color', 'green')
   $('#oldPasswordField').val('')
   $('#newPasswordField').val('')
@@ -54,14 +58,14 @@ const changeSuccess = function () {
 
 const changeFailure = function (error) {
   console.log(error)
-  $('#message').text('"I Drink Your MilkShake!!!"-Error changing password')
+  $('#message').text('Oops, error changing password. Please try again.')
   $('#message').css('background-color', 'red')
   $('#oldPasswordField').val('')
   $('#newPasswordField').val('')
 }
 
 const signOutSuccess = function () {
-  $('#message').text('"I\'ll be Back"-Signed out Successfully')
+  $('#message').text('Signed out Successful. Come Back Soon')
   $('#message').css('background-color', 'green')
   $('#change-password').hide()
   $('#sign-out').hide()
@@ -76,7 +80,7 @@ const signOutSuccess = function () {
 
 const signOutFailure = function (error) {
   console.log(error)
-  $('#message').text('"Get Your Stinking Paws Off Me, You damned dirty ape!!!"-Signout Error')
+  $('#message').text('Signout Error, I thought you were leaving')
   $('#message').css('background-color', 'red')
 }
 
@@ -86,7 +90,7 @@ const showAllSuccess = function (data) {
 
 const createSuccessful = function (data) {
   console.log(data)
-  $('#message').text('"It\'s Alive, It\'s Alive!!!"-New Movie Added')
+  $('#message').text('Survey Created')
   $('#message').css('background-color', 'green')
   $('#createOptionOne').val('')
   $('#createOptionTwo').val('')
@@ -94,13 +98,13 @@ const createSuccessful = function (data) {
 }
 
 const createFailed = function (data) {
-  $('#message').text('"Argo F@%# Yourself"-Error Adding Movie')
+  $('#message').text('Creation Failed, Please try again')
   $('#message').css('background-color', 'red')
   $('#createSurvey').val('')
 }
 
 const updateSuccess = function (data) {
-  $('#message').text('"I wish I knew how to quit you"-Successfully Update')
+  $('#message').text('Survey Updated')
   $('#message').css('background-color', 'green')
   $('#updateId').val('')
   $('#updateOptionOne').val('')
@@ -109,7 +113,7 @@ const updateSuccess = function (data) {
 }
 
 const updateFailed = function (data) {
-  $('#message').text('Hold up one sec, Update Failure')
+  $('#message').text('Problem Updating, Please try again')
   $('#message').css('background-color', 'red')
   $('#updateId').val('')
   $('#updateOptionOne').val('')
@@ -117,14 +121,14 @@ const updateFailed = function (data) {
 }
 
 const deleteSuccess = function () {
-  $('#message').text('"Leave the gun. Take the Cannoli"-Delete Successfully')
+  $('#message').text('Delete Successfully')
   $('#message').css('background-color', 'green')
   $('#deleteSurvey').val('')
   console.log('deleteSuccessful')
 }
 
 const deleteFailed = function () {
-  $('#message').text('Hold up one sec, Failed to Delete')
+  $('#message').text('Failed to Delete')
   $('#message').css('background-color', 'red')
   $('#deleteSurvey').val('')
 }

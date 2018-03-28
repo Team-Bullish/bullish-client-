@@ -1,6 +1,11 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+body {
+  background-image: url('../../public/fun_background.jpg');
+  // background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .sign-out {
   display: none;
@@ -32,4 +37,34 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 #sign-in {
   display: none;
+}
+
+.title {
+  text-align: center;
+  margin-top: 15%;
+}
+
+.subtitle {
+  text-align: center;
+}
+
+// .underline {
+//   color: white;
+//   border-bottom: 5px solid black;
+// }
+
+.this {
+  color: white;
+  font-size: 75px;
+  font-weight: bold;
+}
+
+.that {
+  color: black;
+  font-size: 40px;
+  font-style: italic;
+}
+
+h3 {
+  color: black;
 }

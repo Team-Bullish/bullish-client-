@@ -87,6 +87,9 @@ const addHandlers = () => {
   $('a.show-in').on('click', function () {
     $('#sign-in').toggle()
   })
+  // $('a.show-in').on('click', function () {
+  //   $('#vote').toggle()
+  // })
 }
 
 module.exports = {

@@ -3,6 +3,9 @@ const getFormFields = require('../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 
+let dataId
+let selection
+
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
@@ -57,7 +60,7 @@ const onShowAllSurveys = function (event) {
 
 const onShowOneSurvey = function (event) {
   event.preventDefault()
-  const dataId = $(event.target).attr('data-id')
+  dataId = $(event.target).attr('data-id')
   api.showOneSurvey(dataId)
     .then(ui.showOneSuccess)
     .catch(ui.showOneFailure)
@@ -74,10 +77,21 @@ const onUpdateSurvey = function (event) {
 
 const onDeleteSurvey = function (event) {
   event.preventDefault()
+
   const data = getFormFields(event.target)
   api.deleteSurvey(data)
     .then(ui.deleteSuccess)
     .catch(ui.deleteFailed)
+}
+
+// response needs a surveyid and selected (value name)
+const onCreateResponse = function (event) {
+  event.preventDefault()
+
+  api.createResponse(selection, dataId)
+    .then(console.log)
+    .then(ui.createResponseSuccessful)
+    // .catch(ui.createFailed)
 }
 
 const addHandlers = () => {
@@ -99,6 +113,13 @@ const addHandlers = () => {
   // $('a.show-in').on('click', function () {
   //   $('#vote').toggle()
   // })
+  $('#showOptionOne').on('click', () => {
+    selection = 0
+  })
+  $('#showOptionTwo').on('click', () => {
+    selection = 1
+  })
+  $('.create-response-button').on('click', onCreateResponse)
 }
 
 module.exports = {

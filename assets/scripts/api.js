@@ -105,6 +105,22 @@ const deleteSurvey = function (data) {
   })
 }
 
+const createResponse = function (selected, id) {
+  return $.ajax({
+    url: config.apiOrigin + '/responses',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      response: {
+        selected: selected,
+        surveyId: id
+      }
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -114,5 +130,6 @@ module.exports = {
   showAllSurveys,
   updateSurvey,
   deleteSurvey,
-  showOneSurvey
+  showOneSurvey,
+  createResponse
 }

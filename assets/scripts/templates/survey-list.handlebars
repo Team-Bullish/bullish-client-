@@ -4,6 +4,9 @@
   <div data-id="{{survey.id}}">
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 spaced">
       <p> Which do you prefer? {{survey.optionOne}} or {{survey.optionTwo}}?</p>
+      <p>This survey's id is {{survey._id}} <br> Copy this id and use it to update or delete this survey.
+        You can only update or delete a survey that you created</p>
+
 
       <a data-id= {{survey.id}} id="voteNowButton" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#vote" data-original-title>Vote Now!</a>
     </div>

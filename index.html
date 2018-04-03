@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>TB-Survey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body class="container-fluid">
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand" href="#">THIS OR THAT</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="show-form" href="#sign-up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a class="show-in" href="#sign-in"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li><a  id="sign-out" href="#sign-out"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+          <li><a id="showPass" class="show-pass" href="#change-password"><span class="glyphicon glyphicon-envelope"></span> Change Password</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <h1 class="title"><span class="underline this">This</span> or <span class="underline that">That</span></h1>
+  <h3 class="subtitle">Creating a Winning Culture</h3>
+
+  <!-- SIGN UP FORM -->
+  <p id="message" class="message"></p>
+
+  <form id="sign-up" class="border sign-up">
+    <fieldset>
+      <legend>Sign up!</legend>
+      <input type="submit" value="Sign up!" id="signUpButton">
+      <input type="email" name="credentials[email]" required id="email-field" placeholder="Email">
+      <input type="password" name="credentials[password]" required id="password-field" placeholder="Password">
+      <input type="password" name="credentials[password_confirmation]" id="password-confirmation" required placeholder="Confirm Password">
+    </fieldset>
+  </form>
+  <!-- END OF SIGN UP FORM -->
+
+  <!-- SIGN IN FORM -->
+  <form id="sign-in" class="border sign-in">
+    <fieldset>
+      <legend class="returning-member">Sign In Here!</legend>
+      <input id="signInField" type="submit" value="Sign in!">
+      <input type="text" name="credentials[email]" required id="signInEmail" placeholder="Email">
+      <input type="password" name="credentials[password]" required id="signInPassword" placeholder="Password">
+    </fieldset>
+  </form>
+  <!-- END OF SIGN IN FORM -->
+
+  <!-- SIGN OUT FORM -->
+  <!-- <form id="sign-out" class="border sign-out">
+    <fieldset>
+      <legend class="leaving">Sign Out</legend>
+      <input type="submit" value="Sign Out">
+    </fieldset>
+  </form> -->
+  <!-- END OF SIGN OUT FORM -->
+
+  <!-- CHANGE PASSWORD FORM -->
+  <form id="change-password" class="border change-pw">
+    <fieldset>
+      <legend class="changing">Change Password</legend>
+      <input id="passwordField" type="submit" value="Change Password">
+      <input type="password" name="passwords[old]" id="oldPasswordField" placeholder="old Password">
+      <input type="password" name="passwords[new]" id="newPasswordField" placeholder="new Password">
+    </fieldset>
+  </form>
+  <!-- END OF CHANGE PASSWORD FORM-->
+
+  <!-- CREATE SURVEY FORM -->
+  <form id="create" class="border new-item">
+    <fieldset>
+      <legend class="creation">Survey Title</legend>
+      <input id="createField" type="submit" value="Add Survey"><br>
+      <input type="text" name="survey[optionOne]" id="createOptionOne" placeholder="Choice One" required>
+      <p id="addSomething">Or</p>
+      <input type="text" name="survey[optionTwo]" id="createOptionTwo" placeholder="Choice Two" required>
+      <p id="addSomething">Or</p>
+      <input type="text" name="survey[optionThree]" id="createOptionThree" placeholder="Choice Three" required>
+    </fieldset>
+  </form>
+  <!-- END OF CREATE SURVEY FORM -->
+
+  <!-- SHOW ALL FORM -->
+  <form id="showAll" class="border all-surveys">
+    <fieldset>
+      <legend>My Survey</legend>
+      <input type="submit" value="Show My Surveys">
+    </fieldset>
+  </form>
+  <!-- END OF SHOW ALL FORM -->
+
+  <!-- UPDATE FORM -->
+  <form id="update" class="border update-surveys">
+    <fieldset>
+      <legend class="update">Update an Existing Survey</legend>
+      <input id="updateField" type="submit" value="Update Survey"><br>
+      <input type="text" name="survey[id]" id="updateId" placeholder="Survey ID Here" required><br>
+      <input type="text" name="survey[optionOne]" id="updateOptionOne" placeholder="Update Choice One" required><br>
+      <input type="text" name="survey[optionTwo]" id="updateOptionTwo" placeholder="Update Choice Two" required><br>
+      <input type="text" name="survey[optionThree]" id="updateOptionThree" placeholder="Update Choice Three" required><br>
+    </fieldset>
+  </form>
+  <!-- END OF UPDATE FORM -->
+
+  <!-- DELETE SURVEY FORM -->
+  <form id="delete" class="border delete-surveys">
+    <fieldset>
+      <legend class="update">Delete an Existing Survey</legend>
+      <input id="deleteField" type="submit" value="Delete Survey"><br>
+      <input type="text" name="survey[id]" id="deleteSurvey" placeholder="Survey ID Here"><br>
+    </fieldset>
+  </form>
+  <!-- END OF DELETE SURVEY FORM -->
+
+
+  <div class="container voteNow">
+    <!-- <div class="row">
+      <br/><br/><br/>
+      <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#vote" data-original-title>Vote Now!</a>
+      <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        </div>
+      </div>
+    </div> -->
+
+    <div class="modal fade" id="vote" tabindex="-1" role="dialog" aria-labelledby="voteLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <!-- <h4 class="panel-title" id="voteLabel"><span class="glyphicon glyphicon-arrow-right"></span> How is My Site?</h4> -->
+          </div>
+
+          <div class="modal-body">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <div class="radio">
+                  <button class="create-response-button" id="showOptionOne"></button>
+                  <div id="optionOne-feedback"></div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="radio">
+                  <button class="create-response-button" id="showOptionTwo"></button>
+                  <div id="optionTwo-feedback"></div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="radio">
+                  <button class="create-response-button" id="showOptionThree"></button>
+                  <div id="optionThree-feedback"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-close" data-dismiss="modal">Close</button>
+          </div>
+          <div id="zeros"></div>
+          <div id="ones"></div>
+          <div id="twos"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END OF VOTE MODAL -->
+
+<div id="handlebars-here"></div>
+
+  <!-- FOOTER -->
+  <!-- <div class="navbar  navbar-inverse navbar-fixed-bottom">
+    <div class="container">
+      <div class="navbar-text pull=left">
+        <p> © 2018 TB SURVEY. All Rights Reserved</p>
+      </div>
+    </div>
+  </div> -->
+  <!-- END OF FOOTER -->
+
+
+
+</body>
+
+</html>
